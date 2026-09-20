@@ -8,6 +8,8 @@ public class GameWindow extends JFrame{
         setTitle("Super Mario");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(gamePanel);
+        setLocationRelativeTo(null);
         setVisible(true);
 
     }
