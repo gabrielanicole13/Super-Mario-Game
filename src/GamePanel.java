@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 public class GamePanel extends JPanel implements KeyListener {
 
+
     Player player;
     Level level;
     Timer timer;
@@ -21,7 +22,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
     public void update(){
         player.update();
-       new CollisionHandler.checkCollision(player, level.getTiles());
+      new CollisionHandler.checkCollision(player, level.getTiles());
     }
 
     @Override
@@ -33,11 +34,25 @@ public class GamePanel extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e){
+        int code = e.getKeyCode();
 
+        if(code == KeyEvent.VK_LEFT){
+            player.moveLeft();
+        }else if(code == KeyEvent.VK_RIGHT){
+            player.moveRight();
+        }else if(code == KeyEvent.VK_SPACE){
+            player.jump();
+        }
     }
 
     @Override
-    public void keyReleased(KeyEvent e){}
+    public void keyReleased(KeyEvent e){
+        int code = e.getKeyCode();
+
+        if(KeyEvent.VK_LEFT == code || code == KeyEvent.VK_RIGHT){
+            player.stop();
+        }
+    }
 
     @Override
     public void keyTyped(KeyEvent e){}
