@@ -22,7 +22,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
     public void update(){
         player.update();
-      new CollisionHandler.checkCollision(player, level.getTiles());
+        new CollisionHandler.checkCollision(player, level.getTiles());
     }
 
     @Override
